@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-11-29T09:41:45.231092Z</date>
+  <millis>1669714905231</millis>
+  <nanos>92000</nanos>
+  <sequence>0</sequence>
+  <logger>DZ2.Zad4</logger>
+  <level>WARNING</level>
+  <class>DZ2.Zad4</class>
+  <method>Logger</method>
+  <thread>1</thread>
+  <message>Важно</message>
+</record>
+<record>
+  <date>2022-11-29T09:41:45.269857800Z</date>
+  <millis>1669714905269</millis>
+  <nanos>857800</nanos>
+  <sequence>1</sequence>
+  <logger>DZ2.Zad4</logger>
+  <level>INFO</level>
+  <class>DZ2.Zad4</class>
+  <method>Logger</method>
+  <thread>1</thread>
+  <message>Тестовое логирование</message>
+</record>
+</log>

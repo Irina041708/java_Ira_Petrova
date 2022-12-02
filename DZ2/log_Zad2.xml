@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-02T12:12:53.999839100Z</date>
+  <millis>1669983173999</millis>
+  <nanos>839100</nanos>
+  <sequence>0</sequence>
+  <logger>DZ2.Zad2</logger>
+  <level>INFO</level>
+  <class>DZ2.Zad2</class>
+  <method>Logger</method>
+  <thread>1</thread>
+  <message>Тестовое логирование</message>
+</record>
+</log>
