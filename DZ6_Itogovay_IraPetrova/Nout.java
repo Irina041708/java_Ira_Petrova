@@ -1,14 +1,14 @@
 package DZ6_Itogovay_IraPetrova;
 
 public class Nout {
-
+    // Создаем поля класса
     String Name_; // ОЗУ
     String OZU_; // ОЗУ
     String SSD_; // Объем ЖД
     String operatingSystem_; // Операционная система
     String color_; // Цвет
     Integer price_;
-
+    // Создаем конструктор, так как он ничего не возвращает, в отличии от методов
     Nout(String Name, String OZU, String SSD, String operatingSystem,String color,Integer price){
         Name_ = Name;
         OZU_ = OZU;
@@ -19,14 +19,17 @@ public class Nout {
     }
 
     void PrintInfo(){
-        System.out.printf("Name: %s \tOZU: %s \tSSD: %s \toperatingSystem: %s \tcolor: %s \tprice_: %s\n\n ",Name_, OZU_, SSD_, operatingSystem_, color_,price_);
+        System.out.printf("Name: %s \tOZU: %s \tSSD: %s \toperatingSystem: %s \tcolor: %s \tprice_: %s\n",Name_, OZU_, SSD_, operatingSystem_, color_,price_);
+    }
+    void PrintInfo2(){
+        System.out.printf("Name: %s \tprice_: %s\n ",Name_,price_);
     }
 
     public Object getName() {
         return Name_;
     }
 
-        public Object getOZU() {
+    public Object getOZU() {
         return OZU_;
     }
 
@@ -45,24 +48,12 @@ public class Nout {
     public Object getPrice() {
         return price_;
     }
-}
-class NoutSort{
-     
-    private Integer price2;
-    private String Name2;
-     
-    public NoutSort(String Name, Integer price){
-        this.Name2=Name;
-        this.price2 = price;
+
+    public Integer getPrice2() {
+        return price_;
     }
 
-    public Object getPrice2() {
-        return price2;
+    public String getName2() {
+        return Name_;
     }
-
-    public void PrintInfo() {
-        {
-            System.out.printf("Name: %s \tprice_: %s\n\n ",Name2,price2);
-        }
-    } 
 }
