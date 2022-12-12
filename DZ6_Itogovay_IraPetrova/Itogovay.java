@@ -1,8 +1,7 @@
 package DZ6_Itogovay_IraPetrova;
 
-import java.util.ArrayList;
+
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
@@ -19,6 +18,7 @@ import java.util.stream.Stream;
 // 1 - ОЗУ
 // 2 - Объем ЖД
 // 3 - Операционная система
+
 // 4 - Цвет …
 // Вывести в виде.
 // |Имя| Критерий|
@@ -48,7 +48,8 @@ public class Itogovay {
         + System.lineSeparator() + "3 - Имя ноутбука и его операционная система"
         + System.lineSeparator() + "4 - Имя ноутбука и его цвет"
         + System.lineSeparator() + "5 - Вывод всех ноутбуков и их характеристик"
-        + System.lineSeparator() + "6 - Вывод всех ноутбуков по убыванию стоимости";
+        + System.lineSeparator() + "6 - Вывод всех ноутбуков по убыванию стоимости"
+        + System.lineSeparator() + "7 - Вывод всех ноутбуков по возрастанию в алфавитном порядке";
     System.out.println(menu);
     System.out.println( "Введите цифру, соответствующую необходимому критерию выбора:");
     Integer operation = user_Input.nextInt();
@@ -93,63 +94,76 @@ public class Itogovay {
         }
     }
     else if(operation == 6){
-        NoutSort NoutSort1 = new NoutSort(Nout1.Name_, Nout1.price_);
-        NoutSort NoutSort2 = new NoutSort(Nout2.Name_, Nout2.price_); 
-        NoutSort NoutSort3 = new NoutSort(Nout3.Name_, Nout3.price_);
-        List<NoutSort> userList = new ArrayList<>(Arrays.asList(NoutSort1, NoutSort2, NoutSort3)); 
-        for(NoutSort NoutSort : userList){
-            NoutSort.PrintInfo();
-        }
-        List<NoutSort> sortedList = userList.stream() 
-            .sorted(Comparator.comparingInt(NoutSort::getPrice2())) 
+        HashSet<Nout> allNout = new HashSet<>(Arrays.asList(Nout1,Nout2,Nout3));      
+        List<Nout> sortedList = allNout.stream() 
+            .sorted(Comparator.comparingInt(Nout::getPrice2).reversed()) 
             .collect(Collectors.toList()); 
-        
-        sortedList.forEach(System.out::println); 
-
-        // List<Integer> list = Arrays.asList(Nout1.price_,Nout2.price_,Nout3.price_);
-        //// https://rukovodstvo.net/posts/id_576/ 
-
-        // List<Integer> sortedList = list.stream() 
-        // .sorted(Collections.reverseOrder()) 
-        // .collect(Collectors.toList()); 
-        
-        // System.out.println(sortedList); 
-        // System.out.println("Неотсортированный список" + list); 
-        //// list.stream().sorted().forEach(s->System.out.print( s+" "));
-        
-        
-
-
-        // NoutStream
-        //     .sorted(new NoutComparator())
-        //     .forEach(p->System.out.printf("%s (%s) - %t \n",p.getName(), p.getPrice()));
-        // NoutStream
-        //     .sorted()
-        //     .flatMap(p->Stream.of(
-        //         String.format("НАЗВАНИЕ НОУТБУКА: %s  Price: %s", p.getName(), p.getPrice())      
-        //     ))
-        //     .forEach(s->System.out.println(s));   
+        ////Отсортированный список - Ура получилось:)))
+        for(Nout NoutSort : sortedList){
+            NoutSort.PrintInfo2();
+        }
     }
-    
+    else if(operation == 7){
+        HashSet<Nout> allNout = new HashSet<>(Arrays.asList(Nout1,Nout2,Nout3));      
+        ////Неотсортированный список 
+        // for(Nout NoutSort : allNout){
+        //     NoutSort.PrintInfo();
+        // }
+        List<Nout> sortedList = allNout.stream() 
+            .sorted(Comparator.comparing(Nout::getName2)) 
+            .collect(Collectors.toList()); 
+        ////Отсортированный список - Ура получилось:)))
+        for(Nout NoutSort : sortedList){
+            NoutSort.PrintInfo2();
+        }
+    }
     else
     System.out.println("Вы допустили ошибку при вводе операции. Попробуйте ещё раз"); 
     }
 }
-// class NoutComparator implements Comparator<Nout>{
-  
-//     public int compare(Nout a, Nout b){
-      
-//         return a.getName().toUpperCase().compareTo(b.getName().toUpperCase());
+
+//// 1-Если добавить новый класс для сортировки,но этого не надо делать, 
+////т.к. там будет все тоже самое.
+////2-get по хорошему должен возвращать тот тип, 
+////который содержится в поле (Integer, String).
+////!!! У меня в getPrice()  был тип Object, а должен был быть тип Integer!!!!!!!!!!!
+
+// else if(operation == 6){
+//!!!!!!!!!!!!!!!!!!!!!!!!!В Itogovay.java:
+//     NoutSort NoutSort1 = new NoutSort(Nout1.Name_, Nout1.price_);
+//     NoutSort NoutSort2 = new NoutSort(Nout2.Name_, Nout2.price_); 
+//     NoutSort NoutSort3 = new NoutSort(Nout3.Name_, Nout3.price_);
+//     List<NoutSort> userList = new ArrayList<>(Arrays.asList(NoutSort1, NoutSort2, NoutSort3)); 
+//     ////Неотсортированный список 
+//     for(NoutSort NoutSort : userList){
+//         NoutSort.PrintInfo();
+//     }
+//     List<NoutSort> sortedList = userList.stream() 
+//         .sorted(Comparator.comparingInt(NoutSort::getPrice2).reversed()) 
+//         .collect(Collectors.toList()); 
+//     ////Отсортированный список - Ура получилось:)))
+//     for(NoutSort NoutSort : sortedList){
+//         NoutSort.PrintInfo();
 //     }
 // }
-   
-    // Nout1.PrintInfo();
-    // Nout2.PrintInfo();
-    // Nout3.PrintInfo();
-    //////////////
-     // Выводим только одну позицию из списка
-    // Stream<Nout> NoutStream = Stream.of(Nout1,Nout2,Nout3);
-    // NoutStream
-    //     .map(p-> p.getName())
-    //     .forEach(s->System.out.println(s));   
-   
+//!!!!!!!!!!!!!!!!!!!!!!!!!В Nout.java:
+// class NoutSort{
+     
+//     private Integer price2;
+//     private String Name2;
+     
+//     public NoutSort(String Name, Integer price){
+//         this.Name2=Name;
+//         this.price2 = price;
+//     }
+
+//     public Integer getPrice2() {
+//         return price2;
+//     }
+
+//     public void PrintInfo() {
+//         {
+//             System.out.printf("Name: %s \tprice_: %s\n\n ",Name2,price2);
+//         }
+//     } 
+// }
