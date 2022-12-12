@@ -2,7 +2,6 @@ package DZ6_Itogovay_IraPetrova;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-// import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -10,7 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-// import java.util.Comparator;
+
 
 // Подумать над структурой класса Ноутбук для магазина техники - выделить поля и методы. Реализовать в java.
 // Создать множество ноутбуков.
@@ -41,7 +40,6 @@ public class Itogovay {
     public static Nout Nout2 = new Nout("HP Spectre X360", "RAM 16 ГБ (3200 МГц)", "512 ГБ", "Windows 10 Home","grey", 500000);
     public static Nout Nout3 = new Nout("Apple MacBook Air 13 ","8 ГБ","256 ГБ","macOS","black", 410000);
 
-
     public static void main (String[] args){
     Scanner user_Input = new Scanner(System.in);
     String menu = "Меню:"
@@ -49,7 +47,8 @@ public class Itogovay {
         + System.lineSeparator() + "2 - Имя ноутбука и его SSD"
         + System.lineSeparator() + "3 - Имя ноутбука и его операционная система"
         + System.lineSeparator() + "4 - Имя ноутбука и его цвет"
-        + System.lineSeparator() + "5 - Вывод всех ноутбуков и их характеристик";
+        + System.lineSeparator() + "5 - Вывод всех ноутбуков и их характеристик"
+        + System.lineSeparator() + "6 - Вывод всех ноутбуков по убыванию стоимости";
     System.out.println(menu);
     System.out.println( "Введите цифру, соответствующую необходимому критерию выбора:");
     Integer operation = user_Input.nextInt();
